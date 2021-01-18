@@ -8,7 +8,6 @@
   <meta name="author" content="akaluzinski">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
         integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
 
@@ -16,15 +15,14 @@
 
 <body>
 
-
-
 <style>
-  table{
-    margin: 10px;
-  }
 
-  button{
-    margin: 20px;
+  table {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+  button {
+    margin: 15px;
   }
 </style>
 
@@ -175,14 +173,13 @@
   const headers = ["Dzień", "Drugie danie", "Zupa"]
 
   const headersRow = document.createElement("tr");
-  for(let i = 0; i<headers.length; ++i) {
+  for (let i = 0; i < headers.length; ++i) {
     const cell = document.createElement("td");
     cell.appendChild(document.createTextNode(headers[i]));
     headersRow.appendChild(cell);
   }
 
   tblBody.appendChild(headersRow);
-
 
   for (let i = 0; i < lunchMenu.length; i++) {
     let row = document.createElement("tr");
@@ -204,9 +201,8 @@
 
   tbl.appendChild(tblBody);
   body.appendChild(tbl);
-  tbl.setAttribute("class", "table table-bordered table-striped table-responsive")
+  tbl.setAttribute("class", "table table-bordered table-striped table-responsive mx-auto")
 </script>
-
 
 
 </body>
