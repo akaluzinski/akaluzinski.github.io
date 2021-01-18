@@ -13,12 +13,17 @@
 </head>
 
 <body>
+<button class="btn btn-info" onClick="window.location.reload();">Daj coś innego</button>
 
-<div id="dvTable"></div>
+
 
 <style>
   table{
     margin: 10px;
+  }
+
+  button{
+    margin: 20px;
   }
 </style>
 
@@ -39,7 +44,7 @@
     },
     {
       name: "Lazania",
-      isWeekendOnly: false,
+      isWeekendOnly: true,
       days: 2
     },
     {
@@ -53,7 +58,8 @@
     },
     {
       name: "Pieczone udka",
-      days: 2
+      days: 2,
+      isWeekendOnly: true
     },
     {
       name: "Kurczak w papirusie",
@@ -66,11 +72,58 @@
     {
       name: "Chinczyk a la Adi",
       days: 2
+    },
+    {
+      name: "Łosoś teryiaki z mango",
+      days: 1,
+      isWeekendOnly: true
+    },
+    {
+      name: "Fix Bolognese",
+      days: 2
+    },
+    {
+      name: "Carbonarra",
+      days: 1,
+      isWeekendOnly: true
+    },
+    {
+      name: "Kurczak z ricotta",
+      days: 2
+    },
+    {
+      name: "Risotto",
+      days: 2
+    },
+    {
+      name: "Mielone",
+      days: 2
+    },
+    {
+      name: "Kotlet z fileta kurczaka",
+      days: 2,
+      isWeekendOnly: true
+    },
+    {
+      name: "Kotleciki warzywne",
+      days: 2
+    },
+    {
+      name: "Pizza",
+      days: 2,
+      isWeekendOnly: true
+    },
+    {
+      name: "Chilli con carne",
+      days: 2
     }
   ];
 
+  const soups = ["Grzybowa", "Ogórkowa", "Barszcz", "Szczawiowa", "Żurek", "Pomidorowa", "Szparagowa"]
+  const soup = feedMe(soups);
+
   function feedMe(possibleMeals) {
-    const pickedIndex = Math.floor(Math.random() * (possibleMeals.length - 1));
+    const pickedIndex = Math.floor(Math.random() * (possibleMeals.length));
     return possibleMeals[pickedIndex];
   }
 
@@ -104,26 +157,32 @@
   let tblBody = document.createElement("tbody");
 
   const daysOfWeek = ["Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota", "Niedziela", "Poniedziałek"];
-  let headerRow = document.createElement("tr");
+  const headers = ["Dzień", "Drugie danie", "Zupa"]
 
-  for (let j = 0; j < lunchMenu.length; j++) {
+  const headersRow = document.createElement("tr");
+  for(let i = 0; i<headers.length; ++i) {
     const cell = document.createElement("td");
-    const cellText = document.createTextNode(daysOfWeek[j]);
-    cell.appendChild(cellText);
-    headerRow.appendChild(cell);
+    cell.appendChild(document.createTextNode(headers[i]));
+    headersRow.appendChild(cell);
   }
 
-  tblBody.appendChild(headerRow);
+  tblBody.appendChild(headersRow);
 
-  for (let i = 0; i < 1; i++) {
+
+  for (let i = 0; i < lunchMenu.length; i++) {
     let row = document.createElement("tr");
 
-    for (let j = 0; j < lunchMenu.length; j++) {
-      const cell = document.createElement("td");
-      const cellText = document.createTextNode(lunchMenu[j]);
-      cell.appendChild(cellText);
-      row.appendChild(cell);
-    }
+    const dayCell = document.createElement("td");
+    const lunchCell = document.createElement("td");
+    const soupCell = document.createElement("td");
+
+    dayCell.appendChild(document.createTextNode(daysOfWeek[i]));
+    lunchCell.appendChild(document.createTextNode(lunchMenu[i]));
+    soupCell.appendChild(document.createTextNode(soup))
+
+    row.appendChild(dayCell);
+    row.appendChild(lunchCell);
+    row.appendChild(soupCell);
 
     tblBody.appendChild(row);
   }
@@ -132,6 +191,9 @@
   body.appendChild(tbl);
   tbl.setAttribute("class", "table table-bordered table-striped table-responsive")
 </script>
+
+<button class="btn btn-info" onClick="window.location.reload();">Daj coś innego</button>
+<i class="bi bi-dice-3"></i>
 
 </body>
 </html>
