@@ -6,6 +6,8 @@
   <title>Menu generator</title>
   <meta name="description" content="Menu Generator">
   <meta name="author" content="akaluzinski">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
         integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
@@ -13,7 +15,6 @@
 </head>
 
 <body>
-<button class="btn btn-info" onClick="window.location.reload();">Daj coś innego</button>
 
 
 
@@ -26,6 +27,20 @@
     margin: 20px;
   }
 </style>
+
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-lg-12">
+      <button class="btn btn-info" onClick="window.location.reload();">Daj coś innego</button>
+      <div id="tableDiv"></div>
+      <button class="btn btn-info" onClick="window.location.reload();">Daj coś innego</button>
+    </div>
+  </div>
+</div>
 
 <script>
 
@@ -151,7 +166,7 @@
 
   const lunchMenu = generateLunchMenu(days);
 
-  let body = document.getElementsByTagName("body")[0];
+  let body = document.getElementById("tableDiv");
 
   let tbl = document.createElement("table");
   let tblBody = document.createElement("tbody");
@@ -192,8 +207,7 @@
   tbl.setAttribute("class", "table table-bordered table-striped table-responsive")
 </script>
 
-<button class="btn btn-info" onClick="window.location.reload();">Daj coś innego</button>
-<i class="bi bi-dice-3"></i>
+
 
 </body>
 </html>
