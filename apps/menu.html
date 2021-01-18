@@ -6,7 +6,132 @@
   <title>Menu generator</title>
   <meta name="description" content="Menu Generator">
   <meta name="author" content="akaluzinski">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
 </head>
+
 <body>
+
+<div id="dvTable"></div>
+
+<style>
+  table{
+    margin: 10px;
+  }
+</style>
+
+<script>
+
+  let days = 7;
+
+  const lunchMeals = [
+    {
+      name: "Rosół",
+      isWeekendOnly: true,
+      days: 2
+    },
+    {
+      name: "Leczo",
+      isWeekendOnly: false,
+      days: 2
+    },
+    {
+      name: "Lazania",
+      isWeekendOnly: false,
+      days: 2
+    },
+    {
+      name: "Łazanki",
+      isWeekendOnly: false,
+      days: 2
+    },
+    {
+      name: "Kurczak w szynce parmeńskiej",
+      days: 2
+    },
+    {
+      name: "Pieczone udka",
+      days: 2
+    },
+    {
+      name: "Kurczak w papirusie",
+      days: 1
+    },
+    {
+      name: "Nadziewana papryka",
+      days: 2
+    },
+    {
+      name: "Chinczyk a la Adi",
+      days: 2
+    }
+  ];
+
+  function feedMe(possibleMeals) {
+    const pickedIndex = Math.floor(Math.random() * (possibleMeals.length - 1));
+    return possibleMeals[pickedIndex];
+  }
+
+  function generateLunchMenu(tillDays) {
+
+    let lunches = [];
+    let covered = 0;
+    do {
+      const allMeals = lunchMeals.filter(lunch => !lunches.includes(lunch.name));
+      const weekdayMeals = allMeals.filter(lunches => !lunches.isWeekendOnly);
+      const isWeekend = covered > 5;
+      const pickedMeal = feedMe(isWeekend ? allMeals : weekdayMeals);
+
+      for (let i = 0; i < pickedMeal.days; i++) {
+        lunches.push(pickedMeal.name);
+      }
+
+      covered += pickedMeal.days;
+    } while (covered < tillDays);
+
+    return lunches;
+  }
+
+  //TODO prepare recipe ingredients
+
+  const lunchMenu = generateLunchMenu(days);
+
+  let body = document.getElementsByTagName("body")[0];
+
+  let tbl = document.createElement("table");
+  let tblBody = document.createElement("tbody");
+
+  const daysOfWeek = ["Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota", "Niedziela", "Poniedziałek"];
+  let headerRow = document.createElement("tr");
+
+  for (let j = 0; j < lunchMenu.length; j++) {
+    const cell = document.createElement("td");
+    const cellText = document.createTextNode(daysOfWeek[j]);
+    cell.appendChild(cellText);
+    headerRow.appendChild(cell);
+  }
+
+  tblBody.appendChild(headerRow);
+
+  for (let i = 0; i < 1; i++) {
+    let row = document.createElement("tr");
+
+    for (let j = 0; j < lunchMenu.length; j++) {
+      const cell = document.createElement("td");
+      const cellText = document.createTextNode(lunchMenu[j]);
+      cell.appendChild(cellText);
+      row.appendChild(cell);
+    }
+
+    tblBody.appendChild(row);
+  }
+
+  tbl.appendChild(tblBody);
+  body.appendChild(tbl);
+  tbl.setAttribute("class", "table table-bordered table-striped table-responsive")
+</script>
+
 </body>
 </html>
