@@ -122,6 +122,10 @@
       days: 2
     },
     {
+      name: "Kurczak z salsą avocado",
+      days: 2
+    },
+    {
       name: "Pizza",
       days: 2,
       isWeekendOnly: true
@@ -133,7 +137,7 @@
   ];
 
   const soups = ["Grzybowa", "Ogórkowa", "Barszcz", "Szczawiowa", "Żurek", "Pomidorowa", "Szparagowa"]
-  const soup = feedMe(soups);
+  const dinners = ["Kiełbaska z grilla", "Kanapki", "Szakszuka"];
 
   function feedMe(possibleMeals) {
     const pickedIndex = Math.floor(Math.random() * (possibleMeals.length));
@@ -147,8 +151,9 @@
     do {
       const allMeals = lunchMeals.filter(lunch => !lunches.includes(lunch.name));
       const weekdayMeals = allMeals.filter(lunches => !lunches.isWeekendOnly);
+      const weekendMeals = allMeals.filter(({isWeekendOnly}) => isWeekendOnly);
       const isWeekend = covered > 5;
-      const pickedMeal = feedMe(isWeekend ? allMeals : weekdayMeals);
+      const pickedMeal = feedMe(isWeekend ? weekendMeals : weekdayMeals);
 
       for (let i = 0; i < pickedMeal.days; i++) {
         lunches.push(pickedMeal.name);
@@ -170,7 +175,7 @@
   let tblBody = document.createElement("tbody");
 
   const daysOfWeek = ["Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota", "Niedziela", "Poniedziałek"];
-  const headers = ["Dzień", "Drugie danie", "Zupa"]
+  const headers = ["Dzień", "Drugie danie", "Zupa", "Kolacja"]
 
   const headersRow = document.createElement("tr");
   for (let i = 0; i < headers.length; ++i) {
@@ -187,14 +192,17 @@
     const dayCell = document.createElement("td");
     const lunchCell = document.createElement("td");
     const soupCell = document.createElement("td");
+    const dinnerCell = document.createElement("td");
 
     dayCell.appendChild(document.createTextNode(daysOfWeek[i]));
     lunchCell.appendChild(document.createTextNode(lunchMenu[i]));
-    soupCell.appendChild(document.createTextNode(soup))
+    soupCell.appendChild(document.createTextNode(feedMe(soups)));
+    dinnerCell.appendChild(document.createTextNode(feedMe(dinners)));
 
     row.appendChild(dayCell);
     row.appendChild(lunchCell);
     row.appendChild(soupCell);
+    row.appendChild(dinnerCell);
 
     tblBody.appendChild(row);
   }
