@@ -1,217 +1,29 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+    <meta charset="utf-8">
 
-  <title>Menu generator</title>
-  <meta name="description" content="Menu Generator">
-  <meta name="author" content="akaluzinski">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Menu generator</title>
+    <meta content="Menu Generator" name="description">
+    <meta content="akaluzinski" name="author">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
-
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
 </head>
-
 <body>
 
-<style>
-
-  table {
-    margin-top: 15px;
-    margin-bottom: 15px;
-  }
-  button {
-    margin: 15px;
-  }
-</style>
-
-
-
-
-
 <div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-12 col-lg-12">
-      <button class="btn btn-info" onClick="window.location.reload();">Daj coś innego</button>
-      <div id="tableDiv"></div>
-      <button class="btn btn-info" onClick="window.location.reload();">Daj coś innego</button>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-lg-12">
+            <button class="btn btn-info" onClick="window.location.reload();">Daj coś innego</button>
+            <div id="tableDiv"></div>
+            <button class="btn btn-info" onClick="window.location.reload();">Daj coś innego</button>
+        </div>
     </div>
-  </div>
 </div>
 
-<script>
-
-  let days = 7;
-
-  const lunchMeals = [
-    {
-      name: "Rosół",
-      isWeekendOnly: true,
-      days: 2
-    },
-    {
-      name: "Leczo",
-      isWeekendOnly: false,
-      days: 2
-    },
-    {
-      name: "Lazania",
-      isWeekendOnly: true,
-      days: 2
-    },
-    {
-      name: "Łazanki",
-      isWeekendOnly: false,
-      days: 2
-    },
-    {
-      name: "Kurczak w szynce parmeńskiej",
-      days: 2
-    },
-    {
-      name: "Pieczone udka",
-      days: 2,
-      isWeekendOnly: true
-    },
-    {
-      name: "Kurczak w papirusie",
-      days: 1
-    },
-    {
-      name: "Nadziewana papryka",
-      days: 2
-    },
-    {
-      name: "Chinczyk a la Adi",
-      days: 2
-    },
-    {
-      name: "Łosoś teryiaki z mango",
-      days: 1,
-      isWeekendOnly: true
-    },
-    {
-      name: "Fix Bolognese",
-      days: 2
-    },
-    {
-      name: "Carbonarra",
-      days: 1,
-      isWeekendOnly: true
-    },
-    {
-      name: "Kurczak z ricotta",
-      days: 2
-    },
-    {
-      name: "Risotto",
-      days: 2
-    },
-    {
-      name: "Mielone",
-      days: 2
-    },
-    {
-      name: "Kotlet z fileta kurczaka",
-      days: 2,
-      isWeekendOnly: true
-    },
-    {
-      name: "Kotleciki warzywne",
-      days: 2
-    },
-    {
-      name: "Kurczak z salsą avocado",
-      days: 2
-    },
-    {
-      name: "Pizza",
-      days: 2,
-      isWeekendOnly: true
-    },
-    {
-      name: "Chilli con carne",
-      days: 2
-    }
-  ];
-
-  const soups = ["Grzybowa", "Ogórkowa", "Barszcz", "Szczawiowa", "Żurek", "Pomidorowa", "Szparagowa"]
-  const dinners = ["Kiełbaska z grilla", "Kanapki", "Szakszuka"];
-
-  function feedMe(possibleMeals) {
-    const pickedIndex = Math.floor(Math.random() * (possibleMeals.length));
-    return possibleMeals[pickedIndex];
-  }
-
-  function generateLunchMenu(tillDays) {
-
-    let lunches = [];
-    let covered = 0;
-    do {
-      const allMeals = lunchMeals.filter(lunch => !lunches.includes(lunch.name));
-      const weekdayMeals = allMeals.filter(lunches => !lunches.isWeekendOnly);
-      const weekendMeals = allMeals.filter(({isWeekendOnly}) => isWeekendOnly);
-      const isWeekend = covered > 5;
-      const pickedMeal = feedMe(isWeekend ? weekendMeals : weekdayMeals);
-
-      for (let i = 0; i < pickedMeal.days; i++) {
-        lunches.push(pickedMeal.name);
-      }
-
-      covered += pickedMeal.days;
-    } while (covered < tillDays);
-
-    return lunches;
-  }
-
-  //TODO prepare recipe ingredients
-
-  const lunchMenu = generateLunchMenu(days);
-
-  let body = document.getElementById("tableDiv");
-
-  let tbl = document.createElement("table");
-  let tblBody = document.createElement("tbody");
-
-  const daysOfWeek = ["Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota", "Niedziela", "Poniedziałek"];
-  const headers = ["Dzień", "Drugie danie", "Zupa", "Kolacja"]
-
-  const headersRow = document.createElement("tr");
-  for (let i = 0; i < headers.length; ++i) {
-    const cell = document.createElement("td");
-    cell.appendChild(document.createTextNode(headers[i]));
-    headersRow.appendChild(cell);
-  }
-
-  tblBody.appendChild(headersRow);
-
-  for (let i = 0; i < lunchMenu.length; i++) {
-    let row = document.createElement("tr");
-
-    const dayCell = document.createElement("td");
-    const lunchCell = document.createElement("td");
-    const soupCell = document.createElement("td");
-    const dinnerCell = document.createElement("td");
-
-    dayCell.appendChild(document.createTextNode(daysOfWeek[i]));
-    lunchCell.appendChild(document.createTextNode(lunchMenu[i]));
-    soupCell.appendChild(document.createTextNode(feedMe(soups)));
-    dinnerCell.appendChild(document.createTextNode(feedMe(dinners)));
-
-    row.appendChild(dayCell);
-    row.appendChild(lunchCell);
-    row.appendChild(soupCell);
-    row.appendChild(dinnerCell);
-
-    tblBody.appendChild(row);
-  }
-
-  tbl.appendChild(tblBody);
-  body.appendChild(tbl);
-  tbl.setAttribute("class", "table table-bordered table-striped table-responsive mx-auto")
-</script>
-
+<script src="menu-generator.js" type="text/javascript"></script>
 
 </body>
 </html>
