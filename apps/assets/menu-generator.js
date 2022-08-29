@@ -81,6 +81,9 @@ const lunchMeals = [
         name: "Risotto z kurczakiem i dynią"
     },
     {
+        name: "Kurczak po toskańsku z suszonymi pomidorami"
+    },
+    {
         name: "Butter Chicken"
     },
     {
