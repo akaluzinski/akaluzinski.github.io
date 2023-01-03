@@ -32,7 +32,7 @@ const lunchMeals = [
         name: "Papryka nadziewana ryżem i mięsem mielonym"
     },
     {
-        name: "Chinczyk a la Adi"
+        name: "Chinczyk a'la Adi"
     },
     {
         name: "Łosoś teryiaki z mango",
@@ -88,6 +88,9 @@ const lunchMeals = [
     },
     {
         name: "Filety z kurczaka w sosie pieczarkowym"
+    },
+    {
+        name: "Kurczak słodko-kwaśny a'la Ewa"
     },
     {
         name: "Rolada, gumiklyjzy i modro",
