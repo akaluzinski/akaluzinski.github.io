@@ -68,6 +68,9 @@ const lunchMeals = [
         name: "Kurczak z salsą avocado"
     },
     {
+        name: "Risotto z kurczakiem i grzybami"
+    },
+    {
         name: "Pizza",
         isWeekendOnly: true
     },
