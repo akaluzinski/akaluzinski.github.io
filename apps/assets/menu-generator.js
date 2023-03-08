@@ -96,6 +96,9 @@ const lunchMeals = [
         name: "Kurczak słodko-kwaśny a'la Ewa"
     },
     {
+        name: "Polpette di parmigiano"
+    },
+    {
         name: "Rolada, gumiklyjzy i modro",
         isWeekendOnly: true
     }
