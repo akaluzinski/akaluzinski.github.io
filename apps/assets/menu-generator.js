@@ -104,6 +104,9 @@ const lunchMeals = [
     {
         name: "Rolada, gumiklyjzy i modro",
         isWeekendOnly: true
+    },
+    {
+        name: "Grzanki z wiśniami i szynką parmeńską"
     }
 ];
 
