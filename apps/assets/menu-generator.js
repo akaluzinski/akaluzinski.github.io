@@ -99,6 +99,9 @@ const lunchMeals = [
         name: "Polpette di parmigiano"
     },
     {
+        name: "Kurczak po grecku z fetą"
+    },
+    {
         name: "Rolada, gumiklyjzy i modro",
         isWeekendOnly: true
     }
