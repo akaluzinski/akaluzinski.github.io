@@ -11,6 +11,9 @@ const lunchMeals = [
         isWeekendOnly: false
     },
     {
+        name: "Pieczona dorada"
+    },
+    {
         name: "Lazania",
         isWeekendOnly: true
     },
