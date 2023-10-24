@@ -113,6 +113,9 @@ const lunchMeals = [
     },
     {
         name: "Nuggetsy z kurczaka i płatków śniadaniowych"
+    },
+    {
+        name: "Curry z ciecierzycą, dynią i mlekiem kokosowym"
     }
 ];
 
