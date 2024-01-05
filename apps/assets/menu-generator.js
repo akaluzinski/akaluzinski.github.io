@@ -110,7 +110,8 @@ const lunchMeals = [
     },
     {
         name: "Tagliatelle z krewetkami i pomidorkami w sosie śmietanowym",
-        isWeekendOnly: true
+        isWeekendOnly: true,
+        days: 1
     },
     {
         name: "Grzanki z wiśniami i szynką parmeńską"
