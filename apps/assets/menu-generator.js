@@ -121,6 +121,9 @@ const lunchMeals = [
     },
     {
         name: "Curry z ciecierzycą, dynią i mlekiem kokosowym"
+    },
+    {
+        name: "Zapiekanka z fasolą i kopytkami"
     }
 ];
 
