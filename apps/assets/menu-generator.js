@@ -46,6 +46,10 @@ const lunchMeals = [
         name: "Fix Bolognese"
     },
     {
+        name: "Gniocchi z sosem Barilla, oliwkami i mozzarellą",
+        days: 2
+    },
+    {
         name: "Carbonarra",
         days: 1,
         isWeekendOnly: true
