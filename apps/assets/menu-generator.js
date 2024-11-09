@@ -1,4 +1,4 @@
-const days = 7;
+ const days = 7;
 const defaultMealDays = 2;
 
 const lunchMeals = [
@@ -70,6 +70,10 @@ const lunchMeals = [
     },
     {
         name: "Kotleciki warzywne"
+    },
+    {
+        name: "Wątróbka z jabłkami",
+        isWeekendOnly: true
     },
     {
         name: "Kurczak z salsą avocado"
