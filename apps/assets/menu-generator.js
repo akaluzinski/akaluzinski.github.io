@@ -11,6 +11,10 @@ const lunchMeals = [
         isWeekendOnly: false
     },
     {
+         name: "Łosoś z kręconymi ziemniaczkami",
+         isWeekendOnly: true
+    },
+    {
         name: "Pieczona dorada"
     },
     {
