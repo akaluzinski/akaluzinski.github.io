@@ -11,6 +11,9 @@ const lunchMeals = [
         isWeekendOnly: false
     },
     {
+       name: "Sadzone z ziemniakami i fasolką szparagową"
+    },
+    {
          name: "Łosoś z kręconymi ziemniaczkami",
          isWeekendOnly: true
     },
