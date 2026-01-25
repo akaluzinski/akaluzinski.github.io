@@ -14,6 +14,10 @@ const lunchMeals = [
        name: "Sadzone z ziemniakami i fasolką szparagową"
     },
     {
+       name: "Pierś z kurczaka na parze",
+       isHealthy: true
+    },
+    {
          name: "Łosoś z kręconymi ziemniaczkami",
          isWeekendOnly: true
     },
