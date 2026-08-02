@@ -7,6 +7,12 @@ const lunchMeals = [
         isWeekendOnly: true
     },
     {
+        name: "Bruschetta z grillową brzoskwinią i serem camembert"
+    },
+    {
+        name: "Grecki makaron orzo z kurczakiem, oliwkami, papryką i grillowanym halloumi"
+    },
+    {
         name: "Leczo",
         isWeekendOnly: false
     },
