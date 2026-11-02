@@ -153,7 +153,7 @@ const lunchMeals = [
 ];
 
 const soups = ["Grzybowa", "Ogórkowa", "Barszcz", "Szczawiowa", "Żurek", "Pomidorowa", "Szparagowa"]
-const dinners = ["Tatar wołowy", "Kiełbaska z grilla", "Kanapki", "Szakszuka", "Bruschetta"];
+const dinners = ["Szaszłyki z halloumi, gruszką i szynką parmeńską","Tatar wołowy", "Kiełbaska z grilla", "Kanapki", "Szakszuka", "Bruschetta"];
 
 const feedMe = possibleMeals => possibleMeals[Math.floor(Math.random() * possibleMeals.length)];
 
